@@ -3,11 +3,50 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Link
+} from "react-router-dom";
+import HomePage from './components/views/home/HomePage';
+import BookingPage from './components/views/booking/BookingPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/about",
+    element: <div>About page</div>,
+  },
+  {
+    path: "/booking",
+    element: <BookingPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className='header-wrapper'>
+      <header>
+        <div className="logo1_wrapper">
+          <img src='images/blue2.png' className='logo_image' />
+        </div>
+        <div className="logo2_wrapper">
+          <img src='images/team.png' className='logo_image' />
+        </div>
+        <nav>
+            <a href={`/`}>Home</a>
+            <a href={`/about`}>About</a>
+            <a href={`/booking`}>Booking</a>
+        </nav>
+      </header>
+    </div>
+  
+  <RouterProvider router={router} />
+
   </React.StrictMode>
 );
 
