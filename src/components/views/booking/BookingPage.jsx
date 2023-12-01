@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form"
+import { AuthGuard } from "../../../auth/auth";
 
 export default function BookingPage(){
+    AuthGuard();
 
     const {register, setValue, watch ,handleSubmit} = useForm();
 

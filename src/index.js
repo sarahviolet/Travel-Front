@@ -10,6 +10,10 @@ import {
 } from "react-router-dom";
 import HomePage from './components/views/home/HomePage';
 import BookingPage from './components/views/booking/BookingPage';
+import LoginPage from './components/views/login/LoginPage';
+import RegisterPage from './components/views/register/RegisterPage';
+import { CheckLogin } from './auth/auth';
+import Nav from './components/views/nav/Nav';
 
 const router = createBrowserRouter([
   {
@@ -24,9 +28,18 @@ const router = createBrowserRouter([
     path: "/booking",
     element: <BookingPage />,
   },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <div className='header-wrapper'>
@@ -37,11 +50,7 @@ root.render(
         <div className="logo2_wrapper">
           <img src='images/team.png' className='logo_image' />
         </div>
-        <nav>
-            <a href={`/`}>Home</a>
-            <a href={`/about`}>About</a>
-            <a href={`/booking`}>Booking</a>
-        </nav>
+        <Nav />
       </header>
     </div>
   
